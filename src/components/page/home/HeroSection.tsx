@@ -4,10 +4,10 @@ import HeroCarousel from "./HeroCarousel";
 const HeroSection = () => {
   return (
     <>
-      <div className="full-screen banner">
-        <div className="bg-black bg-opacity-70 h-full w-full leading-20">
+      <div className=" min-h-screen 2xl:h-[calc(100vh-64px)] 2xl:min-h-[calc(100vh-64px)]  banner">
+        <div className="bg-black pt-10 bg-opacity-70 h-full w-full leading-20">
           <Container className="h-full flex flex-col items-center justify-center">
-            <h1 className="text-7xl text-center text-white font-bold">
+            <h1 className="text-5xl xl:text-7xl text-center text-white font-bold">
               Fashion Forward: Redefine Your Dress Collection
             </h1>
             <p className="text-white  text-center mt-5 leading-8 text-lg">
@@ -17,7 +17,7 @@ const HeroSection = () => {
               to express your individuality and boost confidence. Discover your
               unique style today!
             </p>
-            <div className="mt-10">
+            <div className="mt-10 pb-10">
               <HeroCarousel />
             </div>
           </Container>
