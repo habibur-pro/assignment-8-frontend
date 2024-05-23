@@ -15,14 +15,7 @@ const page = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 my-10">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          products
         </div>
         <div className="flex justify-center mb-10">
           <Button>Load More</Button>
