@@ -79,6 +79,7 @@ const Dashboard = () => {
                 src={product}
                 alt="product"
               />
+
               <span className=" lg:text-wrap w-1/2 text-lg md:w-1/6 ">
                 Double Bed & Dressing
               </span>

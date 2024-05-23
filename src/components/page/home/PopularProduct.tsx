@@ -1,7 +1,10 @@
+import { TProductArray } from "@/app/(home)/page";
 import ProductCard from "@/components/ui/ProductCard";
 import { Button } from "@/components/ui/button";
-
-const PopularProduct = () => {
+export type TFlashSale = {
+  products: TProductArray;
+};
+const PopularProduct = ({ products }: TFlashSale) => {
   return (
     <section className="my-20">
       <div className="flex justify-between">
@@ -15,14 +18,17 @@ const PopularProduct = () => {
         <Button>View all</Button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products?.map((product) => (
+          <ProductCard
+            key={`${product.id}`}
+            name={product.name}
+            price={product.price}
+            prevPrice={product.prevPrice}
+            discount={product.discount}
+            image={product.images[0]}
+            id={product.id}
+          />
+        ))}
       </div>
     </section>
   );
