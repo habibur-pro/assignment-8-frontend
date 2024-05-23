@@ -58,9 +58,9 @@ const Dashboard = async () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((product) => (
+          {products.map((product, i) => (
             <TableRow key={product.id}>
-              <TableCell className="font-medium">2133</TableCell>
+              <TableCell className="font-medium">{i + 1}</TableCell>
               <TableCell className="flex gap-3 items-center">
                 <Image
                   className="h-20 w-16 rounded"
