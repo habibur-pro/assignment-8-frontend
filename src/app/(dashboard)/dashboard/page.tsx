@@ -10,53 +10,40 @@ import {
 } from "@/components/ui/table";
 import Image from "next/image";
 import product from "@/assets/images/product.jpg";
+import config from "@/config";
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-];
+export type TProduct = {
+  id: string;
+  name: string;
+  code: string;
+  images: Array<string>;
+  prevPrice: number;
+  price: number;
+  discount: number;
+  category: string;
+  isFlash: boolean;
+  description: string;
+  rating: number;
+  reviews: number;
+  quantity: number;
+  sale: number;
+};
 
-const Dashboard = () => {
+export type TProductArray = Array<TProduct>;
+
+const getProducts = async () => {
+  try {
+    const response = await fetch(`${config.api_base_url}/products`, {
+      next: { revalidate: 30 },
+    });
+    const result = await response.json();
+    return result.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+const Dashboard = async () => {
+  const products: TProductArray = await getProducts();
   return (
     <div>
       <h3 className="text-3xl mb-5">All Products</h3>
@@ -71,23 +58,27 @@ const Dashboard = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">2133</TableCell>
-            <TableCell className="flex gap-3 items-center">
-              <Image
-                className="h-20 w-16 rounded"
-                src={product}
-                alt="product"
-              />
+          {products.map((product) => (
+            <TableRow key={product.id}>
+              <TableCell className="font-medium">2133</TableCell>
+              <TableCell className="flex gap-3 items-center">
+                <Image
+                  className="h-20 w-16 rounded"
+                  src={product.images[0]}
+                  alt="product"
+                  width={40}
+                  height={50}
+                />
 
-              <span className=" lg:text-wrap w-1/2 text-lg md:w-1/6 ">
-                Double Bed & Dressing
-              </span>
-            </TableCell>
-            <TableCell>Panjabi</TableCell>
-            <TableCell>1561651561</TableCell>
-            <TableCell className="text-right">$200.00</TableCell>
-          </TableRow>
+                <span className=" lg:text-wrap w-1/2 text-lg md:w-1/6 ">
+                  {product.name}
+                </span>
+              </TableCell>
+              <TableCell>{product.category}</TableCell>
+              <TableCell>{product.code}</TableCell>
+              <TableCell className="text-right">${product.price}.00</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>
