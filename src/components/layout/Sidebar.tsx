@@ -4,7 +4,7 @@ import Link from "next/link";
 const Sidebar = () => {
   return (
     <div>
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-100 ">
         <div className="sidebar min-h-screen w-[3.35rem] lg:w-56 overflow-hidden border-r transition-all  hover:bg-white hover:shadow-lg">
           <div className="flex h-screen flex-col justify-between pt-2 pb-6">
             <div>

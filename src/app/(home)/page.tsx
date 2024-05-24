@@ -5,25 +5,8 @@ import PopularProduct from "@/components/page/home/PopularProduct";
 import TopCategories from "@/components/page/home/TopCategories";
 import Loader from "@/components/ui/Loader";
 import config from "@/config";
+import { ProductArray } from "@/types";
 import { Suspense } from "react";
-export type TProduct = {
-  id: string;
-  name: string;
-  code: string;
-  images: Array<string>;
-  prevPrice: number;
-  price: number;
-  discount: number;
-  category: string;
-  isFlash: boolean;
-  description: string;
-  rating: number;
-  reviews: number;
-  quantity: number;
-  sale: number;
-};
-
-export type TProductArray = Array<TProduct>;
 
 const getProducts = async () => {
   try {
@@ -38,22 +21,20 @@ const getProducts = async () => {
 };
 
 const page = async () => {
-  const products: Array<TProduct> = await getProducts();
-  console.log(products);
-  const flashProducts = products.filter(
-    (products) => products.isFlash === true
+  const products: ProductArray = await getProducts();
+  const featuredProduct: ProductArray = products.filter(
+    (product) => product.isFeature === true
   );
-
-  console.log({ flashProducts });
+  console.log(featuredProduct);
 
   return (
     <div>
       <Suspense fallback={<Loader />}>
         <HeroSection />
         <Container>
-          <FlashSale products={flashProducts} />
+          <FlashSale />
           <TopCategories />
-          <PopularProduct products={products} />
+          <PopularProduct />
         </Container>
       </Suspense>
     </div>

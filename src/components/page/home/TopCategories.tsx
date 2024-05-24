@@ -5,28 +5,24 @@ export type TCategoryItem = { name: string; image: string; className: string };
 const TopCategories = () => {
   const categories: Array<TCategoryItem> = [
     {
-      name: "panjabi",
-      image:
-        "https://believerssign.com/_next/image?url=https%3A%2F%2Fapi.believerssign.com%2Fpublic%2Fproduct%2FUlH72cEvqB1s0I6qDY7.jpg&w=640&q=75",
-      className: "col-span-4 row-span-2 border min-h-64",
+      name: "tshirt",
+      image: "https://fabrilife.com/products/6496b99a140f4-square.jpg?v=20",
+      className: "col-span-4 row-span-2 border min-h-32 max-h-52 max-h-[435px]",
     },
     {
-      name: "tShirt",
-      image:
-        "https://believerssign.com/_next/image?url=https%3A%2F%2Fapi.believerssign.com%2Fpublic%2Fproduct%2FLqIvwR80Jf8jSalPOdk.jpg&w=640&q=75",
-      className: "col-span-4 row-span-1 border min-h-64",
+      name: "shirt",
+      image: "https://fabrilife.com/products/64b2437cb436e-square.jpg?v=20",
+      className: "col-span-4 row-span-1 border min-h-32 max-h-52",
     },
     {
-      name: "jrsey",
-      image:
-        "https://believerssign.com/_next/image?url=https%3A%2F%2Fapi.believerssign.com%2Fpublic%2Fproduct%2FUXlAHqyyQ2XqOSELMY-.jpg&w=640&q=75",
-      className: "col-span-4 row-span-1 border min-h-64",
+      name: "jersey",
+      image: "https://fabrilife.com/products/6347e814261be-square.jpg?v=20",
+      className: "col-span-4 row-span-2 border min-h-32 max-h-52 max-h-[435px]",
     },
     {
-      name: "borkha",
-      image:
-        "https://believerssign.com/_next/image?url=https%3A%2F%2Fapi.believerssign.com%2Fpublic%2Fproduct%2FTusM49N3L69IbkZvk-H.jpg&w=640&q=75",
-      className: "col-span-4 row-span-2 border min-h-64",
+      name: "jacket",
+      image: "https://fabrilife.com/products/6580330f90068-square.jpg?v=20",
+      className: "col-span-4 row-span-1 border min-h-32 max-h-52 ",
     },
   ];
 
@@ -48,11 +44,6 @@ const TopCategories = () => {
             className={category.className}
           />
         ))}
-
-        {/* <Card className="col-span-4 row-span-2 border min-h-64">div1</Card>
-        <Card className="col-span-4 row-span-1 border min-h-64">div1</Card>
-        <Card className="col-span-4 row-span-2 border min-h-64">div1</Card>
-        <Card className="col-span-4 row-span-1 border min-h-64">div1</Card> */}
       </div>
       <div className="flex justify-center mt-5">
         <Button>View All</Button>

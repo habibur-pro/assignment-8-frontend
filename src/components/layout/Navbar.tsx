@@ -7,11 +7,8 @@ import Link from "next/link";
 const Navbar = () => {
   const navLinks = [
     { id: 1, label: "home", href: "/" },
-    { id: 2, label: "categories", href: "/categories" },
     { id: 3, label: "products", href: "/products" },
     { id: 4, label: "flash sale", href: "/flash-sale" },
-    { id: 5, label: "about us", href: "/about-us" },
-    { id: 6, label: "contact us", href: "/contact-us" },
     { id: 7, label: "dashboard", href: "/dashboard" },
   ];
   return (
@@ -21,7 +18,9 @@ const Navbar = () => {
           <div className="flex justify-between items-center  ">
             <div className="flex gap-5 items-center">
               {/* <img className="size-12" src={logo} alt="" /> */}
-              <p className="font-bold text-xl">Logo</p>
+              <p className="font-bold text-xl">
+                <Link href="/">Luxe Fashion</Link>
+              </p>
             </div>
             <ul className="hidden lg:flex gap-5">
               {navLinks.map((link) => (
