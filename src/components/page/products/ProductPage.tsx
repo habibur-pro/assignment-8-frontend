@@ -26,10 +26,10 @@ const Products = () => {
     { label: "$400.00 - $ 600.00", minPrice: 400, maxPrice: 600 },
   ];
   const categoryOptions = [
-    { label: "panjabi", value: "panjabi" },
+    { label: "shirt", value: "shirt" },
     { label: "tshirt", value: "tshirt" },
-    { label: "jrsey", value: "jrsey" },
-    { label: "borkha", value: "borkha" },
+    { label: "jersey", value: "jersey" },
+    { label: "jacket", value: "jacket" },
   ];
   const ratingOptions = [
     { label: "1 Star", value: 1 },
